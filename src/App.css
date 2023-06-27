@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html {
+  width: 100vw;
+
+}
+
+.select {
+  padding: 25px;
+}
+
+.select:focus {
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+
+option {
+  border: none;
+}
