@@ -7,6 +7,7 @@ import data from "./data.json";
 
 function App() {
   const [search, setSearch] = useState("");
+  const [region, setRegion] = useState("");
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
@@ -21,6 +22,10 @@ function App() {
     setSearch(e.target.value);
     console.log(search);
   }
+  const handleFilterChange = (e) => {
+    setRegion(e.target.value);
+    console.log(region);
+  };
   function changeTheme() {
     setTheme(theme === "dark" ? "light" : "dark");
     console.log(theme);
@@ -31,6 +36,14 @@ function App() {
       return search.toLowerCase() === ""
         ? item
         : item.name.toLowerCase().includes(search);
+    })
+    .filter((item) => {
+      if (region === "" || region === "All Regions") {
+        return true;
+        // No region selected, show all data
+      } else {
+        return item.region === region;
+      }
     })
     .map((item, index) => (
       <div
@@ -69,7 +82,7 @@ function App() {
         <main className="main w-full px-4 flex flex-col gap-8">
           <div className="search-select w-full  search-select mt-5 flex gap-5 flex-col items-start md:flex-row md:items-center md:justify-between max-w-[1300px]">
             <SearchBar change={handleSearch} search={search} />
-            <Selectmenu />
+            <Selectmenu change={handleFilterChange} />
           </div>
           <div className="card-wrapper w-full max-w-7xl">{dataElem}</div>
         </main>
