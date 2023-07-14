@@ -4,6 +4,7 @@ import SearchBar from "./components/SearchBar";
 import Selectmenu from "./components/SelectMenu";
 import { useState, useEffect } from "react";
 import data from "./data.json";
+import CountryPage from "./components/CountryPage";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -79,13 +80,14 @@ function App() {
     <>
       <div className="flex flex-col items-center gap-8">
         <Navbar onclick={changeTheme} theme={theme} />
-        <main className="main w-full px-4 flex flex-col gap-8">
+        {/* <main className="main w-full px-4 flex flex-col gap-8">
           <div className="search-select w-full  search-select mt-5 flex gap-5 flex-col items-start md:flex-row md:items-center md:justify-between max-w-[1300px]">
             <SearchBar change={handleSearch} search={search} />
             <Selectmenu change={handleFilterChange} />
           </div>
           <div className="card-wrapper w-full max-w-7xl">{dataElem}</div>
-        </main>
+        </main> */}
+        <CountryPage/>
       </div>
     </>
   );
