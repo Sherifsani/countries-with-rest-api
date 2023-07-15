@@ -1,8 +1,8 @@
 export default function CountryPage(){
     return (
       <div>
-        <div className="back">
-          <div className="bx bx-arrow-left"></div>
+        <div className="back bg-white dark:bg-DBDME rounded-md flex gap-2 items-center w-[80px]">
+          <div className="bx bx-arrow-back"></div>
           <p>Back</p>
         </div>
         <div className="page-main">
